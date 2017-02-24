@@ -1,9 +1,10 @@
-# work • [ ![Build Status] [travis-image] ] [travis] [ ![License] [license-image] ] [license]
+# datadump • [ ![Build Status] [travis-image] ] [travis] [ ![License] 
+[license-image] ] [license]
 
-* Python package for easy saving and loading in organized workspaces. *
+* Python package for easy saving and loading in organized datadumpspaces. *
 
-[travis-image]: https://travis-ci.org/riceric22/work.png?branch=master
-[travis]: https://travis-ci.org/riceric22/work
+[travis-image]: https://travis-ci.org/riceric22/datadump.png?branch=master
+[travis]: https://travis-ci.org/riceric22/datadump
 
 [license-image]: http://img.shields.io/badge/license-Apache--2-blue.svg?style=flat
 [license]: LICENSE
@@ -15,25 +16,25 @@ organizational folders.
 ## Getting started
 
 ### Install
-`pip install work`
+`pip install datadump`
 
 ### Usage: 
 
-+ `work.wd()` returns the working directory
-+ `work.pwd()` prints the working directory, which by default is `tmp/`
-+ `work.swd(s)` changes the working directory to `s`
-+ `work.save(name, *args, **kwargs)` saves `(*args, **kwargs)` to your working
-directory, and also returns the tuple. 
-+ `work.load(name)` returns the tuple stored under `name`. 
++ `datadump.wd()` returns the working directory
++ `datadump.pwd()` prints the working directory, which by default is `tmp/`
++ `datadump.swd(s)` changes the working directory to `s`
++ `datadump.save(name, *args, **kwargs)` saves `(*args, **kwargs)` to your
+working directory, and also returns the tuple. 
++ `datadump.load(name)` returns the tuple stored under `name`. 
 
 ### Example
 
 ```Python
->>> work.pwd()
+>>> datadump.pwd()
 tmp/
->>> work.swd('directory')
->>> work.save('experiments1', [1,2,3], alpha=0.1, beta=6)
+>>> datadump.swd('directory')
+>>> datadump.save('experiments1', [1,2,3], alpha=0.1, beta=6)
 (([1, 2, 3],), {'alpha': 0.1, 'beta': 6})
->>> work.load('experiments1')
+>>> datadump.load('experiments1')
 (([1, 2, 3],), {'alpha': 0.1, 'beta': 6})
 ```

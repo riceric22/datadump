@@ -1,24 +1,24 @@
-import work
+import datadump as dd
 import random
 import os
 
 def test_wd():
-    assert work.wd() == 'tmp/'
-    work.swd('dir1')
-    assert work.wd() == 'dir1/'
+    assert dd.wd() == 'tmp/'
+    dd.swd('dir1')
+    assert dd.wd() == 'dir1/'
 
 def test_io():
     try:
-        work.swd('tmp/')
+        dd.swd('tmp/')
         data = [2,0,1,7]
         n = 8
         x = list(range(n))
         y = [random.randint(0,5) for _ in range(n)]
         s = 'filename'
-        work.save(s, n, x=x, y=y)
+        dd.save(s, n, x=x, y=y)
         assert os.path.isfile('tmp/filename.pkl')
 
-        d = work.load(s)
+        d = dd.load(s)
         print(d)
         assert (d[0] == (n,))
         assert (d[1]['x'] == x)
