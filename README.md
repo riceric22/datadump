@@ -1,7 +1,6 @@
-# datadump • [ ![Build Status] [travis-image] ] [travis] [ ![License] 
-[license-image] ] [license]
+# datadump • [ ![Build Status] [travis-image] ] [travis] [ ![License] [license-image] ] [license]
 
-* Python package for easy saving and loading in organized datadumpspaces. *
+* Python package for easy saving and loading in directory organized workspaces. *
 
 [travis-image]: https://travis-ci.org/riceric22/datadump.png?branch=master
 [travis]: https://travis-ci.org/riceric22/datadump
@@ -12,8 +11,6 @@
 ## Why? 
 To eliminate repetitive plumbing code when saving and loading data in different
 organizational folders. 
-
-## Getting started
 
 ### Install
 `pip install datadump`

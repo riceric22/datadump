@@ -1,8 +1,11 @@
 import pickle
 import os
 
-print('''Workspace is tmp/ folder by default. Use swd("/path/to/workspace/") to 
-change this. ''')
+print('''Workspace is tmp/ folder by default. Use 
+
+datadump.swd("/path/to/workspace/") 
+
+to change this. ''')
 
 __WORK_DIR__ = "tmp/"
 
