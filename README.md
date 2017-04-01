@@ -1,4 +1,4 @@
-# datadump • [ ![Build Status] [travis-image] ] [travis] [ ![License] [license-image] ] [license]
+# datadump • [![Build Status][travis-image]][travis] [![License][license-image]][license]
 
 * Python package for easy saving and loading in directory organized workspaces. *
 
@@ -15,7 +15,7 @@ organizational folders.
 ### Install
 `pip install datadump`
 
-### Usage: 
+### Usage 
 
 + `datadump.wd()` returns the working directory
 + `datadump.pwd()` prints the working directory, which by default is `tmp/`
