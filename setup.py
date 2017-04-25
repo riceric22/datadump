@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='datadump',
-    version='0.0.1',
+    version='0.0.2',
     description="Organized workspaces for simple saving and loading of variables",
     author='Eric Wong',
     author_email='ericwong@cs.cmu.edu',

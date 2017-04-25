@@ -1,24 +1,28 @@
 language: python
-python: 
-  - 3.5
-
+python:
+- 3.5
 install:
-  - sudo apt-get update
-  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
-    else
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-    fi
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
-  - hash -r
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update -q conda
-  - conda info -a
-
-  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
-  - source activate test-environment
-  - python setup.py install
-
+- sudo apt-get update
+- if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+  -O miniconda.sh; else wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  -O miniconda.sh; fi
+- bash miniconda.sh -b -p $HOME/miniconda
+- export PATH="$HOME/miniconda/bin:$PATH"
+- hash -r
+- conda config --set always_yes yes --set changeps1 no
+- conda update -q conda
+- conda info -a
+- conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
+- source activate test-environment
+- python setup.py install
 script:
-  - nosetests -v -d test.py
+- nosetests -v -d test.py
+deploy:
+  provider: pypi
+  user: riceric22
+  password:
+    secure: kAkWnLIMY6eMKT13b0DWGQY5fGCQHvdDsemMVIZww+/BLj3p0lFjIaaBSpChlGU/JmDZ76B4rQeoPOh73rWpUguStFcX1BCK0JvvcsRoeFgNR44um0Sr3wGssIn4j22mTNoGOhOvTCRHvWCceKzft/eBViDByO0DXrDNDGiuPAiOhp4JsPUmD3upyPmsd0MVuAb+XRPdCt/PykpVT7KzTnhF+wMh0OpFogvm2q5CPRJiiXYT+j26zgfauSUJ2cEOfe77n2riBlihUlCZxzoAmeUXkxC3W+UO2OId16UGeEquWr5mz0bDc/hZQiYYJBCPU8D3mNsvskzw9Z/hpN4I+Xmc5ELG3NHtKYzHGuZ4o/g5kLiG3o1JmaPvUzlq392aSQkROtZQexy8AqQcjJSa/lbLiEcKGA2AuApKfeB7CLzAFtb1bHvriE3QJdKczZ2WK41dd6uSha06hEPBJ5DgT6myO36Qd9gvviEtr7TCd7BEETutqf+UPMqL8IUNAZYI2kKkpxqdNp1fFOAATdGBqATh/awkPqTSjFaFeVI6SDwub0x386NG4aqOZwyUOa11kvA3i5Y02e3Zb33o/RmTVdWK8wni2PL5s7KZ92ke+XyWY2zacDcjI/AI6IeToF/gsNpW7zqWTJK6OrI1R8uNr6Flan7ZsIK1vrUghW8FXo8=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: riceric22/datadump
