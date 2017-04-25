@@ -38,3 +38,8 @@ def load(name):
         t = pickle.load(f)
     return t
 
+def ls():
+    if os.path.exists(__WORK_DIR__):
+        for s in os.listdir(__WORK_DIR__):
+            if len(s) >= 4 and s[-4:] == '.pkl':
+                print(s[:-4])
